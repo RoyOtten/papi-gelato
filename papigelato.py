@@ -23,6 +23,7 @@ def nogmeer():
             print("sorry, dat snap ik niet, kunt u de winkel verlaten alstublief?") 
 
 def bolletjes():
+    print("welkom bij papigelato") 
     hoeveel = int(input("hoeveel bolletjes wil je?"))
     if hoeveel > 8:
         print("sorry zon grote bak hebben wij niet") 
