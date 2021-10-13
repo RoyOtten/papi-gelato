@@ -1,35 +1,58 @@
+prijsbolletjes = 1.10
+prijsbakje = 0.75
+prijshoorntje = 1.25
+totaalbolletjes = 0
+totaalbakje = 0 
+totaalhoorntje = 0 
+hoeveel = 0
+
+
+
+def yesOrno(vraag): 
+    while True:
+        antwoord = input(vraag) 
+        if antwoord == "ja":
+            return True
+        elif antwoord == "nee":
+            return False
+        else:
+            print("invalid Option")
+def bonnetje():  
+    totaal = (totaalbolletjes * prijsbolletjes) + (totaalbakje * prijsbakje) + ( totaalhoorntje * prijshoorntje) 
+    print("dat is dan",(totaalbolletjes), "x",(prijsbolletjes), "+" ,(totaalbakje), "x", (prijsbakje), "+", (totaalhoorntje), "x", (prijshoorntje), "end dat is" ,(totaal))
+
 def smaken():
-    print("""De Smaken zijn
+    while True:
+        print("""De Smaken zijn
 A = Aardbei
 B = Vanille
 C = Chocolade""")
-    antwoordSmaken = input("Welke Smaak: ")
-    if antwoordSmaken.lower() == "a":
-        return "Aardbei"
-    elif antwoordSmaken.lower() == "b": 
-        return "vanille"
-    elif antwoordSmaken.lower() == "c":
-        return "chocolade" 
+        antwoordSmaken = input("Welke Smaak: ").lower()
+        if antwoordSmaken == "a":
+            return "Aardbei"
+        elif antwoordSmaken== "b": 
+            return "vanille"
+        elif antwoordSmaken == "c":
+            return "chocolade" 
+        else: 
+            print("invalid option") 
     
 
 
-def nogmeer():
-        nogmeerbestellen = input("wilt u nog meer bestellen?")
-        if nogmeerbestellen == ("ja"):
-            return bolletjes() 
-        elif nogmeerbestellen == ("nee"):
-            print("bedankt en tot ziens!!") 
-        else:
-            print("sorry, dat snap ik niet, kunt u de winkel verlaten alstublief?") 
 
+
+print("welkom bij papigelato")
 def bolletjes():
-    print("welkom bij papigelato") 
-    hoeveel = int(input("hoeveel bolletjes wil je?"))
-    if hoeveel > 8:
-        print("sorry zon grote bak hebben wij niet") 
-        print(str(nogmeer()))
-    
-    elif hoeveel <= 4:
+    while True:
+        hoeveel = int(input("hoeveel bolletjes wil je?"))
+        if hoeveel > 8:
+            print("sorry zon grote bak hebben wij niet") 
+        else:
+            return hoeveel
+while True:
+    hoeveel = bolletjes()
+    totaalbolletjes += hoeveel
+    if hoeveel <= 4:
         allesmaken = ""
         for x in range(hoeveel):
             x += 1
@@ -39,13 +62,14 @@ def bolletjes():
         bakofhoorntje = input("wilt u een bak of een hoorntje") 
         if bakofhoorntje == ("bakje"):
             print("oke, dan is hier uw bakje met", (hoeveel),"bolletjes")  
-            print(str(nogmeer()))
+            totaalbakje += 1 
         elif bakofhoorntje == ("hoorntje"): 
-            print("oke, dan is hier uw hoorntje met", (hoeveel), "bollejtes") 
-            print(str(nogmeer()))
+            totaalhoorntje += 1 
+            print("oke, dan is hier uw hoorntje met", (hoeveel), "bolletjes") 
+            
         else:
             print("sorry dat snap ik niet")
-            print(str(nogmeer()))
+            
     elif hoeveel >= 3:
         allesmaken = ""
         for x in range(hoeveel):
@@ -54,10 +78,24 @@ def bolletjes():
             allesmaken = allesmaken + " " +  smaken()
         print(allesmaken)
         print ("oke, dan is hier uw bakje met",(hoeveel),"bollejes") 
-        print(str(nogmeer())) 
+        totaalbakje += 1 
+ 
     
 
-print (str(bolletjes()))
+    inputYesNo = input("Wil je nog meer bestellen?")
+    if inputYesNo == "ja":
+        print("Oke meer ijs")
+    elif inputYesNo == 'nee':
+        print (bonnetje()) 
+        break
+    
+ 
+
+
+     
+
+    
+
 
 
 
