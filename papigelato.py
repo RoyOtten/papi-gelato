@@ -1,4 +1,4 @@
-prijsbolletjes = 1.10
+prijsbolletjes = 0.95
 prijsbakje = 0.75
 prijshoorntje = 1.25
 totaalbolletjes = 0
@@ -14,7 +14,7 @@ totaalcaramel = 0
 totaaltoppings = (totaalslagroom + totaalsprinkels + totaalcaramel)
 hoeveelliter = 0 
 liter = 9.80
-percent = 9/100 
+percent = 6/100 
 percentage = percent * 100 
 btw = (hoeveelliter + liter + percent) 
 import sys
@@ -65,7 +65,7 @@ C = Chocolade""")
         elif antwoordSmaken == "c":
             return "chocolade" 
         else: 
-            print("invalid option") 
+            print("isorry , dat verkopen wij niet in deze salon") 
 
           
 def bolletjes():
@@ -101,7 +101,7 @@ while True:
             print("oke, dan is hier uw hoorntje met", (hoeveel), "bolletjes") 
             
         else:
-            print("sorry dat snap ik niet")
+            print("sorry dat verkopen wij niet in deze salon")
             
     elif hoeveel >= 3:
         allesmaken = ""
@@ -129,6 +129,8 @@ while True:
     elif inputYesNo == 'nee':
         print (bonnetje()) 
         break 
+    else: 
+        print('Sorry dat is niet iets wat wij in deze salon aanbieden') 
     
  
 
