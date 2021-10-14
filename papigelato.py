@@ -5,8 +5,38 @@ totaalbolletjes = 0
 totaalbakje = 0 
 totaalhoorntje = 0 
 hoeveel = 0
+prijsslagroom = 0.50
+totaalslagroom = 0 
+prijssprinkels = 0.30
+totaalsprinkels = 0 
+prijscaramel = 0.90
+totaalcaramel = 0 
+totaaltoppings = (totaalslagroom + totaalsprinkels + totaalcaramel)
+hoeveelliter = 0 
+liter = 9.80
+percent = 9/100 
+percentage = percent * 100 
+btw = (hoeveelliter + liter + percent) 
+import sys
 
+def zakelijk():
+    hoeveelliter = int(input("hoeveel liter wil je?"))
+    if hoeveelliter >= 0: 
+        print ("de prijs is dan", hoeveelliter, "x", liter, "+", btw, "en dat is", (hoeveelliter * liter + btw)) 
+        sys.exit(0) 
+    else:
+        print ("dat snap ik niet")
 
+def zakelijke_markt():
+    z_or_p = input("bent u particulier of zakelijk?")
+    if z_or_p == "particulier":
+        return hoeveel 
+    elif z_or_p == "zakelijk":
+        return zakelijk() 
+    else:
+        print("dat snap ik niet")
+print("welkom bij papigelato")  
+zakelijke_markt() 
 
 def yesOrno(vraag): 
     while True:
@@ -18,8 +48,8 @@ def yesOrno(vraag):
         else:
             print("invalid Option")
 def bonnetje():  
-    totaal = (totaalbolletjes * prijsbolletjes) + (totaalbakje * prijsbakje) + ( totaalhoorntje * prijshoorntje) 
-    print("dat is dan",(totaalbolletjes), "x",(prijsbolletjes), "+" ,(totaalbakje), "x", (prijsbakje), "+", (totaalhoorntje), "x", (prijshoorntje), "end dat is" ,(totaal))
+    totaal = (totaalbolletjes * prijsbolletjes) + (totaalbakje * prijsbakje) + ( totaalhoorntje * prijshoorntje) + (totaalslagroom) + (totaalcaramel) + (totaalsprinkels) 
+    print("dat is dan",(totaalbolletjes), "x",(prijsbolletjes), "+" ,(totaalbakje), "x", (prijsbakje), "+", (totaalhoorntje), "x", (prijshoorntje), "+" , (totaaltoppings), "end dat is" ,(totaal))
 
 def smaken():
     while True:
@@ -36,12 +66,8 @@ C = Chocolade""")
             return "chocolade" 
         else: 
             print("invalid option") 
-    
 
-
-
-
-print("welkom bij papigelato")
+          
 def bolletjes():
     while True:
         hoeveel = int(input("hoeveel bolletjes wil je?"))
@@ -65,6 +91,13 @@ while True:
             totaalbakje += 1 
         elif bakofhoorntje == ("hoorntje"): 
             totaalhoorntje += 1 
+        toppings = input("welke topping wil je?")
+        if toppings == "slagroom":
+            totaalslagroom += 1
+        elif toppings == "sprinkels":
+            totaalsprinkels += 1
+        elif toppings == "caramel":
+            totaalcaramel += 1
             print("oke, dan is hier uw hoorntje met", (hoeveel), "bolletjes") 
             
         else:
@@ -77,6 +110,14 @@ while True:
             print(f"Geef de smaak voor bolletje {x} ")
             allesmaken = allesmaken + " " +  smaken()
         print(allesmaken)
+        toppings = input("welke topping wil je?") 
+        if toppings == "slagroom":
+             totaalslagroom += 1
+        elif toppings == "sprinkels":
+             totaalsprinkels += 1
+        elif toppings == "caramel":
+             totaalcaramel += 1
+
         print ("oke, dan is hier uw bakje met",(hoeveel),"bollejes") 
         totaalbakje += 1 
  
@@ -87,7 +128,7 @@ while True:
         print("Oke meer ijs")
     elif inputYesNo == 'nee':
         print (bonnetje()) 
-        break
+        break 
     
  
 
